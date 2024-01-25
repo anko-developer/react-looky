@@ -1,0 +1,31 @@
+.form-control {
+  @apply text-base text-[#181C22] px-4 py-3 rounded-[8px] outline-none border border-[#D4D9E3];
+
+  // placehoder
+  &::placeholder {
+    @apply text-[#AAAFB9];
+  }
+
+  // action
+  &:focus {
+    @apply border-brand;
+  }
+
+  // size
+  &-sm {
+    @apply py-[9px] text-sm rounded-[6px];
+  }
+
+  &.lg {
+    @apply py-4 font-semibold;
+  }
+
+  // state
+  &:disabled {
+    @apply text-[#6d727b] bg-[@f7f8fb];
+  }
+
+  &.is-invalid {
+    @apply border-[#61D3BF];
+  }
+}

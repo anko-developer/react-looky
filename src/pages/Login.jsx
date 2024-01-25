@@ -20,6 +20,7 @@ export default function Login() {
         <Form.Group controlId="a">
           <Form.Label>아이디</Form.Label>
           <Form.Control
+            size="lg"
             name="userId"
             type="text"
             placeholder="아이디 입력"
@@ -29,6 +30,7 @@ export default function Login() {
         <Form.Group controlId="b">
           <Form.Label>패스워드</Form.Label>
           <Form.Control
+            invalid={true}
             name="userPassword"
             type="password"
             placeholder="비밀번호 입력"
