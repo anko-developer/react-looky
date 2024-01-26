@@ -51,37 +51,37 @@ async function adminUser(user) {
   });
 }
 
-// export async function addNewProduct(product, image) {
-//   const id = uuid();
-//   return set(ref(database, `products/${id}`), {
-//     ...product,
-//     id,
-//     price: parseInt(product.price),
-//     image,
-//     options: product.options.split(","),
-//   });
-// }
+export async function addNewProduct(product, image) {
+  const id = uuid();
+  return set(ref(database, `products/${id}`), {
+    ...product,
+    id,
+    price: parseInt(product.price),
+    image,
+    options: product.options.split(","),
+  });
+}
 
-// export async function getProducts() {
-//   return get(ref(database, "products")).then((snapshot) => {
-//     if (snapshot.exists()) {
-//       return Object.values(snapshot.val());
-//     }
-//     return [];
-//   });
-// }
+export async function getProducts() {
+  return get(ref(database, "products")).then((snapshot) => {
+    if (snapshot.exists()) {
+      return Object.values(snapshot.val());
+    }
+    return [];
+  });
+}
 
-// export async function getCart(userId) {
-//   return get(ref(database, `carts/${userId}`)).then((snapshot) => {
-//     const items = snapshot.val() || {};
-//     return Object.values(items);
-//   });
-// }
+export async function getCart(userId) {
+  return get(ref(database, `carts/${userId}`)).then((snapshot) => {
+    const items = snapshot.val() || {};
+    return Object.values(items);
+  });
+}
 
-// export async function addOrUpdateToCart(userId, product) {
-//   return set(ref(database, `carts/${userId}/${product.id}`), product);
-// }
+export async function addOrUpdateToCart(userId, product) {
+  return set(ref(database, `carts/${userId}/${product.id}`), product);
+}
 
-// export async function removeFromCart(userId, productId) {
-//   return remove(ref(database, `carts/${userId}/${productId}`));
-// }
+export async function removeFromCart(userId, productId) {
+  return remove(ref(database, `carts/${userId}/${productId}`));
+}
