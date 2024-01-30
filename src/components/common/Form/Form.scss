@@ -1,6 +1,6 @@
 // form control
 .form-control {
-  @apply block w-full text-base text-[#181C22] px-4 py-3 rounded-[8px] outline-none border border-[#D4D9E3];
+  @apply block w-full text-base text-[#181C22] px-4 py-3 rounded-[8px] outline-none border border-[#D4D9E3] appearance-none;
 
   // placehoder
   &::placeholder {
@@ -50,7 +50,11 @@
 }
 
 .was-validated {
-  .form-control {
-    border-color: red !important;
+  .form-control:valid {
+    border-color: blue !important;
+  }
+
+  .form-control:invalid {
+    @apply border-[#61D3BF];
   }
 }

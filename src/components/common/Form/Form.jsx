@@ -5,8 +5,23 @@ import FormControl from "./FormControl";
 import FormSelect from "./FormSelect";
 import classNames from "classnames";
 
-function Form({ children, className, as: Component = "form" }) {
-  return <Component className={classNames(className)}>{children}</Component>;
+function Form({
+  children,
+  className,
+  validated,
+  ref,
+  as: Component = "form",
+  ...props
+}) {
+  return (
+    <Component
+      ref={ref}
+      className={classNames(className, validated && "was-validated")}
+      {...props}
+    >
+      {children}
+    </Component>
+  );
 }
 
 export default Object.assign(Form, {

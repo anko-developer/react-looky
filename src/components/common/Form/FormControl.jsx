@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import FormContext from "./FormContext";
-import styles from "./Form.module.scss";
-import classnNames from "classnames";
+import "./Form.scss";
+import classNames from "classnames";
 
 export default function FormControl({
   id,
@@ -19,12 +19,13 @@ export default function FormControl({
     <Component
       id={controlId}
       type={type}
+      readOnly={readOnly}
       {...props}
-      className={classnNames(
+      className={classNames(
         className,
-        size && styles[`${prefix}-${size}`],
-        invalid && styles[`${prefix}-invalid`],
-        styles[prefix]
+        size && `${prefix}-${size}`,
+        invalid && `${prefix}-invalid`,
+        prefix
       )}
     />
   );
