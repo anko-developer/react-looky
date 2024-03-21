@@ -14,12 +14,10 @@ export default function Login() {
     });
   };
   const handleSubmit = (e) => {
-    e.preventDefault();
     const form = e.currentTarget;
-    console.log(form);
-    console.log("값 체크", form.checkValidity());
-    if (form.checkValidity() !== false) {
+    if (form.checkValidity() === false) {
       e.preventDefault();
+      e.stopPropagation();
     }
 
     setValidated(true);
@@ -27,9 +25,9 @@ export default function Login() {
 
   return (
     <section className="px-6">
-      <h1 className=" text-2xl text-center">LOOKY COOKEY</h1>
+      <h1 className="text-2xl text-center">LOOKY COOKEY</h1>
 
-      <Form validated={validated} onSubmit={handleSubmit}>
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group className="mb-4" controlId="a">
           <Form.Label>아이디</Form.Label>
           <Form.Control
@@ -39,6 +37,7 @@ export default function Login() {
             type="text"
             placeholder="아이디(4~16자, 영문/숫자)"
             onChange={handleChange}
+            required
           />
         </Form.Group>
         <Form.Group controlId="b">
@@ -49,6 +48,7 @@ export default function Login() {
             type="password"
             placeholder="비밀번호(8~16자, 영문/숫자/특수문자)"
             onChange={handleChange}
+            required
           />
         </Form.Group>
         <button>로그인</button>

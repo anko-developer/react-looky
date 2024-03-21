@@ -25,14 +25,6 @@
   &:disabled {
     @apply text-[#6d727b] bg-[@f7f8fb];
   }
-
-  &-invalid {
-    @apply border-[#61D3BF];
-
-    .was-validated & {
-      color: red !important;
-    }
-  }
 }
 
 // form select
@@ -49,12 +41,23 @@
   background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13 5.66667C13 5.84722 12.9382 6.00347 12.8145 6.13542L8.43945 10.8021C8.31576 10.934 8.16927 11 8 11C7.83073 11 7.68425 10.934 7.56055 10.8021L3.18555 6.13542C3.06185 6.00347 3 5.84722 3 5.66667C3 5.48611 3.06185 5.32986 3.18555 5.19792C3.30924 5.06597 3.45573 5 3.625 5H12.375C12.5443 5 12.6908 5.06597 12.8145 5.19792C12.9382 5.32986 13 5.48611 13 5.66667Z' fill='%23AAAFB9'/%3E%3C/svg%3E%0A");
 }
 
+// validated
 .was-validated {
-  .form-control:valid {
-    border-color: blue !important;
-  }
+  .form-control {
+    &-valid {
+      border-color: blue !important;
+    }
 
-  .form-control:invalid {
-    @apply border-[#61D3BF];
+    &-invalid {
+      @apply border-[#61D3BF];
+    }
+
+    &:valid {
+      border-color: blue !important;
+    }
+
+    &:invalid {
+      @apply border-[#61D3BF];
+    }
   }
 }

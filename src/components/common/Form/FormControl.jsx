@@ -9,6 +9,7 @@ export default function FormControl({
   readOnly,
   type,
   className,
+  valid = false,
   invalid = false,
   as: Component = "input",
   ...props
@@ -24,6 +25,7 @@ export default function FormControl({
       className={classNames(
         className,
         size && `${prefix}-${size}`,
+        valid && `${prefix}-valid`,
         invalid && `${prefix}-invalid`,
         prefix
       )}
